@@ -16,15 +16,15 @@ class Solution:
 #                 return mid
 #         return -1
         
-        def _search(nums,low,high):
+        def rec (nums,low,high): 
             if low>=high:
                 return -1
             mid = low + (high-low)//2
             if nums[mid] == target:
                 return mid
             elif target > nums[mid]:
-                return _search(nums,mid+1,high)
+                return rec(nums,mid+1,high)
             else: 
-                return _search(nums,low,mid)
-        return _search(nums,0,len(nums))
+                return rec(nums,low,mid)
+        return rec(nums,0,len(nums))
             
